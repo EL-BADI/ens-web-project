@@ -16,6 +16,7 @@ export const POST = async (req: NextRequest) => {
     const body = await req.json();
     const post = await db.post.create({
       data: { ...body, userEmail: session.user?.email },
+      include: { user: true },
     });
 
     return new NextResponse(JSON.stringify(post), { status: 200 });

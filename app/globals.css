@@ -70,7 +70,10 @@
   * {
     @apply border-border;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
-    @apply bg-background text-foreground bg-slate-800;
+    @apply scroll-smooth bg-background text-foreground bg-slate-800;
   }
 }

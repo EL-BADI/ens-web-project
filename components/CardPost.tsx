@@ -1,9 +1,20 @@
 import Image from "next/image";
 import { Meteors } from "./ui/Meteors";
-import { cn } from "@/lib/utils";
-import { Post } from "@prisma/client";
+import { cn, formatDate } from "@/lib/utils";
+import { Post, User } from "@prisma/client";
+import Link from "next/link";
+import { Button } from "./ui/button";
+import { DeleteIcon, Trash } from "lucide-react";
+import axios from "axios";
+import { auth } from "@/auth";
+import { db } from "@/lib/db";
+import { revalidatePath } from "next/cache";
 
-function MeteorsDemo(props: Post) {
+function MeteorsDemo(
+  props: Post & {
+    user: User;
+  }
+) {
   return (
     <div className="">
       <div className=" w-full relative">
@@ -26,20 +37,30 @@ function MeteorsDemo(props: Post) {
             </svg>
           </div>
 
-          <h1 className="font-bold text-xl text-white mb-4 relative z-50">
+          <h1 className="font-bold text-2xl text-white mb-4 relative z-50">
             {props.title}
           </h1>
 
-          <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
-            I don&apos;t know what to write so I&apos;ll just paste something
-            cool here. One more sentence because lorem ipsum is just
-            unacceptable. Won&apos;t ChatGPT the shit out of this.
-          </p>
+          <div className=" flex items-center gap-4 mb-5 mt-2">
+            <Image
+              width={40}
+              height={40}
+              className=" rounded-full"
+              src={props.user.image as string}
+              alt="author image"
+            />
+            <p>{props.user.name}</p>
+          </div>
 
-          <button className="border px-4 py-1 rounded-lg  border-gray-500 text-gray-300">
+          <Link
+            href={`/posts/${props.slug}`}
+            className="border px-4 py-1 rounded-lg  border-gray-500 text-gray-300"
+          >
             Explore
-          </button>
-
+          </Link>
+          <p className=" absolute bottom-0 right-0 font-semibold tracking-widest p-5">
+            {formatDate(props.createdAt)}
+          </p>
           {/* Meaty part - Meteor effect */}
           <Meteors number={20} />
         </div>
@@ -48,19 +69,44 @@ function MeteorsDemo(props: Post) {
   );
 }
 
-interface CardPostProps {
-  image?: string;
-  title: string;
-  date: string;
-}
-const CardPost = (props: Post) => {
+const CardPost = (
+  props: Post & {
+    canDelete?: boolean;
+    user: User;
+  }
+) => {
   return (
     <div
       className={cn(
-        "grid items-center grid-cols-[300px_1fr] gap-x-3 mb-4",
+        "grid items-center relative grid-cols-[300px_1fr] gap-x-3 mb-6",
         !props.img && "grid-cols-1"
       )}
     >
+      {props.canDelete && (
+        <form
+          className="absolute top-0 right-0 z-10"
+          action={async () => {
+            "use server";
+            const session = await auth();
+            if (session?.user?.email !== props.user.email) return;
+
+            await db.post.delete({
+              where: {
+                id: props.id,
+              },
+            });
+            revalidatePath("/my-posts");
+          }}
+        >
+          <Button
+            type="submit"
+            className="gap-1 text-rose-500 font-bold m-3 bg-slate-700 "
+          >
+            Delete
+            <Trash className=" w-4 h-4" />
+          </Button>
+        </form>
+      )}
       {props.img && (
         <div className="w-full h-[235px] relative aspect-square overflow-hidden rounded-xl">
           <Image

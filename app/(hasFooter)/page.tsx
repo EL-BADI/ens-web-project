@@ -10,11 +10,14 @@ const Page = async () => {
     orderBy: {
       createdAt: "desc", // Order posts by createdAt field in descending order
     },
+    include: {
+      user: true, // Include the user associated with each post
+    },
   });
 
   return (
     <div className="">
-      <section className=" px-4 mt-24 mb-16">
+      <section className="mb-14">
         <Hero />
       </section>
       <Center>

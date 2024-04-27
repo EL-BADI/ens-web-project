@@ -28,19 +28,21 @@ const AccountDropMenu = ({
           variant="ghost"
           size="icon"
         >
-          <Image src={imageUrl as string} fill alt="Channel" />
+          <Image src={imageUrl as string} fill alt="user" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="center" side="bottom">
-        {isAdmin && (
+        {
           <DropdownMenuItem>
-            <Link href={`/account`}>My Blogs</Link>
+            <Button asChild className="flex items-center w-full text-slate-100">
+              <Link href={"/my-posts"}>My Posts</Link>
+            </Button>
           </DropdownMenuItem>
-        )}
+        }
         <DropdownMenuItem>
           <Button
             onClick={() => signOut()}
-            className="flex items-center text-rose-500"
+            className="flex items-center w-full text-rose-500"
           >
             Log out <LogOut className=" w-4 h-4 ml-2" />
           </Button>

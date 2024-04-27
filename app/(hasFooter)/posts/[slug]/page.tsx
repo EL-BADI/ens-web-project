@@ -1,34 +1,27 @@
 import Comments from "@/components/Comments/Comments";
 import styles from "./singlePage.module.css";
 import Image from "next/image";
-
-const getData = async (slug: string) => {
-  const res = await fetch(`http://localhost:3000/api/posts/${slug}`, {
-    cache: "no-store",
-  });
-
-  if (!res.ok) {
-    throw new Error("Failed");
-  }
-
-  return res.json();
-};
+import { db } from "@/lib/db";
+import { formatDate } from "@/lib/utils";
 
 const SinglePage = async ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
 
-  const data = {};
+  const post = await db.post.findUnique({
+    where: { slug },
+    include: { user: true },
+  });
 
   return (
-    <div className={styles.container}>
+    <div className="pt-24 min-h-screen">
       <div className={styles.infoContainer}>
         <div className={styles.textContainer}>
-          <h1 className={styles.title}>{data?.title}</h1>
+          <h1 className={styles.title}>{post?.title}</h1>
           <div className={styles.user}>
-            {data?.user?.image && (
+            {post?.user?.image && (
               <div className={styles.userImageContainer}>
                 <Image
-                  src={data.user.image}
+                  src={post.user.image}
                   alt=""
                   fill
                   className={styles.avatar}
@@ -36,23 +29,30 @@ const SinglePage = async ({ params }: { params: { slug: string } }) => {
               </div>
             )}
             <div className={styles.userTextContainer}>
-              <span className={styles.username}>{data?.user?.name}</span>
-              <span className={styles.date}>01.01.2024</span>
+              <span className={styles.username}>{post?.user?.name}</span>
+              <span className={styles.date}>
+                {formatDate(post?.createdAt as Date)}
+              </span>
             </div>
           </div>
         </div>
-        {data?.img && (
+        {post?.img && (
           <div className={styles.imageContainer}>
-            <Image src={data.img} alt="" fill className={styles.image} />
+            <Image
+              src={post.img}
+              alt=""
+              fill
+              className={styles.image + " rounded-2xl"}
+            />
           </div>
         )}
       </div>
       <div className={styles.content}>
         <div className={styles.post}>
-          {/* <div
+          <div
             className={styles.description}
-            dangerouslySetInnerHTML={{ __html: data?.desc }}
-          /> */}
+            dangerouslySetInnerHTML={{ __html: post?.desc as string }}
+          />
           <div className={styles.comment}>
             <Comments postSlug={slug} />
           </div>
