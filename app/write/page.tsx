@@ -8,6 +8,8 @@ import ReactQuill from "react-quill";
 import { PlusCircleIcon } from "lucide-react";
 import Center from "@/components/Center";
 import { CldUploadWidget } from "next-cloudinary";
+import Image from "next/image";
+import ActionToolTip from "@/components/ActionToolTip";
 
 const WritePage = () => {
   const { status } = useSession();
@@ -52,6 +54,16 @@ const WritePage = () => {
   return (
     <Center>
       <div className={styles.container + " mt-20"}>
+        {image && (
+          <div className="relative bg-zinc-700 rounded-2xl mt-3  h-64 overflow-hidden">
+            <Image
+              fill
+              src={image}
+              alt="blog image"
+              className=" object-cover z-10"
+            />
+          </div>
+        )}
         <input
           type="text"
           placeholder="Title"
@@ -61,6 +73,7 @@ const WritePage = () => {
         <div className={styles.editor}>
           <CldUploadWidget
             onSuccess={(result) => {
+              // @ts-ignore
               setImage(result?.info?.secure_url);
             }}
             options={{
@@ -72,14 +85,16 @@ const WritePage = () => {
           >
             {({ open }) => {
               return (
-                <button
-                  onClick={() => {
-                    open();
-                  }}
-                  className={styles.button}
-                >
-                  <PlusCircleIcon />
-                </button>
+                <ActionToolTip label="Add image">
+                  <button
+                    onClick={() => {
+                      open();
+                    }}
+                    className={styles.button}
+                  >
+                    <PlusCircleIcon />
+                  </button>
+                </ActionToolTip>
               );
             }}
           </CldUploadWidget>

@@ -6,6 +6,7 @@ const nextConfig = {
       "img.freepik.com",
       "img.icons8.com",
       "lh3.googleusercontent.com",
+      "res.cloudinary.com",
     ],
   },
 };

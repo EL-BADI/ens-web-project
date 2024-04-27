@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { Meteors } from "./ui/Meteors";
 import { cn } from "@/lib/utils";
+import { Post } from "@prisma/client";
 
-function MeteorsDemo() {
+function MeteorsDemo(props: Post) {
   return (
     <div className="">
       <div className=" w-full relative">
@@ -26,7 +27,7 @@ function MeteorsDemo() {
           </div>
 
           <h1 className="font-bold text-xl text-white mb-4 relative z-50">
-            Meteors because they&apos;re cool
+            {props.title}
           </h1>
 
           <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
@@ -52,15 +53,25 @@ interface CardPostProps {
   title: string;
   date: string;
 }
-const CardPost = ({ image, title, date }: CardPostProps) => {
+const CardPost = (props: Post) => {
   return (
-    <div className={cn("grid grid-cols-[300px_1fr]", !image && "grid-cols-1")}>
-      {image && (
-        <div className="">
-          <Image src={image} width={300} alt="post image" height={300} />
+    <div
+      className={cn(
+        "grid items-center grid-cols-[300px_1fr] gap-x-3 mb-4",
+        !props.img && "grid-cols-1"
+      )}
+    >
+      {props.img && (
+        <div className="w-full h-[235px] relative aspect-square overflow-hidden rounded-xl">
+          <Image
+            src={props.img}
+            alt="post image"
+            fill
+            className=" object-cover"
+          />
         </div>
       )}
-      <MeteorsDemo />
+      <MeteorsDemo {...props} />
     </div>
   );
 };
