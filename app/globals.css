@@ -76,4 +76,10 @@
   body {
     @apply scroll-smooth bg-background text-foreground bg-slate-800;
   }
+  .heroTitle {
+    font-size: 72px;
+    background: -webkit-linear-gradient(left, #ff6ab2, #a84ef6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }

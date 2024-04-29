@@ -1,14 +1,14 @@
-"use client";
-
-import { Bot, LogIn } from "lucide-react";
+import { Bot, LogIn, PenBox } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { useSession } from "next-auth/react";
 import AccountDropMenu from "../AccountDropMenu";
+import Search from "./Search";
+import { auth } from "@/auth";
+import { db } from "@/lib/db";
 
-const TopNav = () => {
-  const { data: session, status } = useSession();
-
+const TopNav = async () => {
+  const session = await auth();
+  const posts = await db.post.findMany({});
   return (
     <header className="bg-slate-900 fixed w-full z-50 top-0 left-0">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
@@ -21,67 +21,20 @@ const TopNav = () => {
 
           <div className="hidden md:block">
             <nav aria-label="Global">
-              <ul className="flex items-center gap-6 text-sm">
-                {
+              <ul className="flex items-center gap-6">
+                {session && (
                   <li>
                     <Link
-                      className="text-zinc-400 transition hover:text-zinc-300"
+                      className="text-zinc-400 transition flex items-center gap-1 hover:text-zinc-300"
                       href="/write"
                     >
-                      {" "}
-                      Write{" "}
+                      Write <PenBox className=" w-5 h-5" />
                     </Link>
                   </li>
-                }
+                )}
 
                 <li>
-                  <a
-                    className="text-zinc-400 transition hover:text-zinc-300"
-                    href="#"
-                  >
-                    {" "}
-                    Careers{" "}
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="text-zinc-400 transition hover:text-zinc-300"
-                    href="#"
-                  >
-                    {" "}
-                    History{" "}
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="text-zinc-400 transition hover:text-zinc-300"
-                    href="#"
-                  >
-                    {" "}
-                    Services{" "}
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="text-zinc-400 transition hover:text-zinc-300"
-                    href="#"
-                  >
-                    {" "}
-                    Projects{" "}
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="text-zinc-400 transition hover:text-zinc-300"
-                    href="#"
-                  >
-                    {" "}
-                    Blog{" "}
-                  </a>
+                  <Search posts={posts} />
                 </li>
               </ul>
             </nav>
@@ -89,7 +42,7 @@ const TopNav = () => {
 
           <div className="flex items-center gap-4">
             <div className="sm:flex sm:gap-4">
-              {status === "unauthenticated" && (
+              {!session && (
                 <Button
                   variant={"main"}
                   asChild
@@ -101,7 +54,7 @@ const TopNav = () => {
                   </Link>
                 </Button>
               )}
-              {status === "authenticated" && (
+              {session && (
                 <AccountDropMenu imageUrl={session.user?.image as string} />
               )}
             </div>
