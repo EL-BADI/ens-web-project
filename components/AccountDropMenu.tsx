@@ -8,7 +8,7 @@ import {
 import Image from "next/image";
 import { Button } from "./ui/button";
 import Link from "next/link";
-import { LogOut } from "lucide-react";
+import { BookMarked, LogOut } from "lucide-react";
 import { signOut } from "next-auth/react";
 
 interface AccountDropMenuProps {
@@ -35,14 +35,19 @@ const AccountDropMenu = ({
         {
           <DropdownMenuItem>
             <Button asChild className="flex items-center w-full text-slate-100">
-              <Link href={"/my-posts"}>My Posts</Link>
+              <Link
+                href={"/my-posts"}
+                className=" flex items-center justify-between gap-2"
+              >
+                My Posts <BookMarked className="text-indigo-400 w-4 h-4" />
+              </Link>
             </Button>
           </DropdownMenuItem>
         }
         <DropdownMenuItem>
           <Button
             onClick={() => signOut()}
-            className="flex items-center w-full text-rose-500"
+            className="flex items-center justify-between w-full text-rose-500"
           >
             Log out <LogOut className=" w-4 h-4 ml-2" />
           </Button>

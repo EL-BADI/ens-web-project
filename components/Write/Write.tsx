@@ -58,6 +58,7 @@ const Write = () => {
           <div className="relative bg-zinc-700 rounded-2xl mt-3  h-64 overflow-hidden">
             <Image
               fill
+              unoptimized
               src={image}
               alt="blog image"
               className=" object-cover z-10"
@@ -107,7 +108,7 @@ const Write = () => {
             placeholder="Tell your story..."
           />
         </div>
-        <button className={styles.publish} onClick={handleSubmit}>
+        <button className={styles.publish + " z-20"} onClick={handleSubmit}>
           Publish
         </button>
       </div>

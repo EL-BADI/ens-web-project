@@ -6,6 +6,7 @@ import ReactQueryProvider from "@/components/providers/ReactQueryProvider";
 import AuthProvider from "@/components/providers/AuthProvider";
 import { auth } from "@/auth";
 import { Session } from "next-auth";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default async function RootLayout({
               <TopNav />
               {children}
             </main>
+            <Toaster />
           </ReactQueryProvider>
         </AuthProvider>
       </body>

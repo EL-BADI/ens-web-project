@@ -19,6 +19,9 @@ import {
   InputOTPGroup,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
+import axios from "axios";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const FormSchema = z.object({
   pin: z.string().min(6, {
@@ -27,6 +30,7 @@ const FormSchema = z.object({
 });
 
 function InputOTPForm() {
+  const router = useRouter();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -34,7 +38,18 @@ function InputOTPForm() {
     },
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {}
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
+    try {
+      const { data: res } = await axios.post("/api/adminize", { data });
+
+      if (res?.success) {
+        toast("You are Admin now!");
+        router.replace("/write");
+      } else toast("Wrong Pass Word!");
+    } catch (error) {
+      toast("Wrong Pass Word!");
+    }
+  }
 
   return (
     <Form {...form}>
