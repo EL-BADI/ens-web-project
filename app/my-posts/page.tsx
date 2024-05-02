@@ -12,7 +12,7 @@ const MyPostsPage = async () => {
     include: { user: true },
   });
   console.log({ myPosts });
-
+  //
   return (
     <Center>
       <div className="mt-24">
