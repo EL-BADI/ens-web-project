@@ -22,7 +22,9 @@ const MyPostsPage = async () => {
         )}
         {myPosts &&
           myPosts.length > 0 &&
-          myPosts.map((post) => <CardPost {...post} canDelete={true} />)}
+          myPosts.map((post) => (
+            <CardPost key={post.id} {...post} canDelete={true} />
+          ))}
       </div>
     </Center>
   );

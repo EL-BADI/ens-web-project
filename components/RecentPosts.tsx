@@ -19,7 +19,7 @@ const RecentPosts = ({
       </h2>
       {posts &&
         posts?.length > 0 &&
-        posts.map((post) => <CardPost {...post} />)}
+        posts.map((post) => <CardPost key={post.id} {...post} />)}
     </div>
   );
 };
