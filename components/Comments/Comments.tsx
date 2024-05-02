@@ -10,6 +10,7 @@ import { useSession } from "next-auth/react";
 import axios from "axios";
 import { Comment, User } from "@prisma/client";
 import { cn, formatDate } from "@/lib/utils";
+import { Button } from "../ui/button";
 
 const fetcher = async (url: string) => {
   const res = await fetch(url);
@@ -46,17 +47,20 @@ const Comments = ({ postSlug }: { postSlug: string }) => {
       <h1 className={styles.title}>Comments</h1>
       {status === "authenticated" ? (
         <div className={styles.write}>
-          <textarea
+          <input
+            type="text"
             placeholder="write a comment..."
-            className={styles.input}
+            className={" p-3 bg-white/10 rounded-lg w-full"}
             onChange={(e) => setDesc(e.target.value)}
           />
-          <button className={styles.button} onClick={handleSubmit}>
+          <Button variant={"main"} onClick={handleSubmit}>
             Send
-          </button>
+          </Button>
         </div>
       ) : (
-        <Link href="/login">Login to write a comment</Link>
+        <Button asChild variant={"main"}>
+          <Link href="/login">Login to write a comment</Link>
+        </Button>
       )}
       <div className={styles.comments}>
         {isPending

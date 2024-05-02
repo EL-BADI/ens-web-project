@@ -43,9 +43,9 @@ function InputOTPForm() {
       const { data: res } = await axios.post("/api/adminize", { data });
 
       if (res?.success) {
-        toast("You are Admin now!");
-        router.replace("/write");
-      } else toast("Wrong Pass Word!");
+        toast("You are Professor now!");
+        router.refresh();
+      } else toast("Wrong Password!");
     } catch (error) {
       toast("Wrong Pass Word!");
     }

@@ -10,6 +10,7 @@ import Center from "@/components/Center";
 import { CldUploadWidget } from "next-cloudinary";
 import Image from "next/image";
 import ActionToolTip from "@/components/ActionToolTip";
+import { Button } from "../ui/button";
 
 const Write = () => {
   const { status } = useSession();
@@ -101,16 +102,22 @@ const Write = () => {
           </CldUploadWidget>
 
           <ReactQuill
-            className={styles.textArea}
+            className={
+              "w-full text-white border-2 border-white/80 mb-11 rounded-xl"
+            }
             theme="bubble"
             value={value}
             onChange={setValue}
             placeholder="Tell your story..."
           />
         </div>
-        <button className={styles.publish + " z-20"} onClick={handleSubmit}>
+        <Button
+          variant={"main"}
+          className=" z-20 absolute top-16 right-0"
+          onClick={handleSubmit}
+        >
           Publish
-        </button>
+        </Button>
       </div>
     </Center>
   );
