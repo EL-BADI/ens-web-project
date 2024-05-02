@@ -3,38 +3,38 @@ import { StudentsDevs } from "./StudentsDevs";
 
 const Footer = () => {
   return (
-    <footer className=" bg-slate-200">
+    <footer className=" bg-black">
       <div className="mx-auto max-w-screen-xl px-4 pb-8 pt-16 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-5xl">
+          <h2 className="text-3xl font-extrabold text-gray-100 sm:text-5xl">
             Developed By
           </h2>
 
-          <p className="mx-auto mt-4 max-w-sm text-gray-500">
+          <p className="mx-auto mt-4 max-w-sm text-gray-300">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum
             maiores ipsum eos temporibus ea nihil.
           </p>
           <StudentsDevs />
         </div>
 
-        <div className="mt-16 border-t border-gray-300 pt-8 sm:flex sm:items-center sm:justify-between lg:mt-24">
+        <div className="mt-16 border-t border-gray-200 pt-8 sm:flex sm:items-center sm:justify-between lg:mt-24">
           <ul className="flex flex-wrap justify-center gap-4 text-xs lg:justify-end">
             <li>
-              <a href="#" className="text-gray-500 transition hover:opacity-75">
+              <a href="#" className="text-gray-100 transition hover:opacity-75">
                 {" "}
                 Terms & Conditions{" "}
               </a>
             </li>
 
             <li>
-              <a href="#" className="text-gray-500 transition hover:opacity-75">
+              <a href="#" className="text-gray-100 transition hover:opacity-75">
                 {" "}
                 Privacy Policy{" "}
               </a>
             </li>
 
             <li>
-              <a href="#" className="text-gray-500 transition hover:opacity-75">
+              <a href="#" className="text-gray-100 transition hover:opacity-75">
                 {" "}
                 Cookies{" "}
               </a>
@@ -47,7 +47,7 @@ const Footer = () => {
                 href="#"
                 rel="noreferrer"
                 target="_blank"
-                className="text-gray-700 transition hover:opacity-75"
+                className="text-gray-200 transition hover:opacity-75"
               >
                 <span className="sr-only">Facebook</span>
 
@@ -71,7 +71,7 @@ const Footer = () => {
                 href="#"
                 rel="noreferrer"
                 target="_blank"
-                className="text-gray-700 transition hover:opacity-75"
+                className="text-gray-200 transition hover:opacity-75"
               >
                 <span className="sr-only">Instagram</span>
 
@@ -95,7 +95,7 @@ const Footer = () => {
                 href="#"
                 rel="noreferrer"
                 target="_blank"
-                className="text-gray-700 transition hover:opacity-75"
+                className="text-gray-200 transition hover:opacity-75"
               >
                 <span className="sr-only">Twitter</span>
 
@@ -115,7 +115,7 @@ const Footer = () => {
                 href="#"
                 rel="noreferrer"
                 target="_blank"
-                className="text-gray-700 transition hover:opacity-75"
+                className="text-gray-200 transition hover:opacity-75"
               >
                 <span className="sr-only">GitHub</span>
 
@@ -139,7 +139,7 @@ const Footer = () => {
                 href="#"
                 rel="noreferrer"
                 target="_blank"
-                className="text-gray-700 transition hover:opacity-75"
+                className="text-gray-200 transition hover:opacity-75"
               >
                 <span className="sr-only">Dribbble</span>
 

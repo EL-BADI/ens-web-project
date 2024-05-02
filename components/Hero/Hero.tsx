@@ -5,9 +5,10 @@ import Link from "next/link";
 
 function Hero() {
   return (
-    <div className="w-[calc(100%-0rem)] mx-auto rounded-b-[70px]  h-[70dvh] overflow-hidden">
+    <div className="w-[calc(100%-0rem)] mx-auto  h-[100dvh] overflow-hidden">
       <Vortex
-        backgroundColor=""
+        rangeSpeed={3.5}
+        rangeRadius={0.7}
         className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
       >
         <h2 className="text-2xl heroTitle md:text-6xl font-bold text-center">

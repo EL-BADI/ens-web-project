@@ -10,11 +10,11 @@ const TopNav = async () => {
   const session = await auth();
   const posts = await db.post.findMany({});
   return (
-    <header className="bg-slate-900 fixed w-full z-50 top-0 left-0">
+    <header className=" bg-black/80 backdrop-blur-md fixed w-full z-50 top-0 left-0">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="md:flex md:items-center md:gap-12">
-            <Link href={"/"} className=" text-indigo-500">
+            <Link href={"/"} className=" text-gray-100">
               <Bot className=" w-8 h-8" />
             </Link>
           </div>

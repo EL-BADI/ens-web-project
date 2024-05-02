@@ -1,5 +1,6 @@
 import Center from "@/components/Center";
 import Hero from "@/components/Hero/Hero";
+import ProfessorsList from "@/components/ProfessorsList";
 import RecentPosts from "@/components/RecentPosts";
 import { db } from "@/lib/db";
 import React from "react";
@@ -17,11 +18,14 @@ const Page = async () => {
 
   return (
     <div className="">
-      <section className="mb-14">
+      <section className="">
         <Hero />
       </section>
       <Center>
-        <RecentPosts posts={posts} />
+        <div className="grid gap-7 relative grid-cols-[1fr_250px]">
+          <RecentPosts posts={posts} />
+          <ProfessorsList />
+        </div>
       </Center>
     </div>
   );
