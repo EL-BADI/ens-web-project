@@ -2,6 +2,7 @@ import { Vortex } from "../ui/vortex";
 import { ArrowBigDownDash } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import React from "react";
 
 function Hero() {
   return (
@@ -32,4 +33,4 @@ function Hero() {
     </div>
   );
 }
-export default Hero;
+export default React.memo(Hero);
