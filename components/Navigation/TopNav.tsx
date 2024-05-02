@@ -14,9 +14,9 @@ const TopNav = async () => {
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="md:flex md:items-center md:gap-12">
-            <Link href={"/"} className=" text-gray-100">
-              <Bot className=" w-8 h-8" />
-            </Link>
+            <a href={"/"} className=" text-gray-100">
+              <Bot className="w-9 h-9" />
+            </a>
           </div>
 
           <div className="hidden md:block">
