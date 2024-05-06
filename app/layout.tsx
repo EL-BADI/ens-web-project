@@ -1,12 +1,12 @@
+import { auth } from "@/auth";
+import TopNav from "@/components/Navigation/TopNav";
+import AuthProvider from "@/components/providers/AuthProvider";
+import ReactQueryProvider from "@/components/providers/ReactQueryProvider";
+import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
+import { Session } from "next-auth";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import TopNav from "@/components/Navigation/TopNav";
-import ReactQueryProvider from "@/components/providers/ReactQueryProvider";
-import AuthProvider from "@/components/providers/AuthProvider";
-import { auth } from "@/auth";
-import { Session } from "next-auth";
-import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
