@@ -4,6 +4,14 @@ import Image from "next/image";
 import { db } from "@/lib/db";
 import { formatDate } from "@/lib/utils";
 
+export async function generateStaticParams() {
+  const posts = await db.post.findMany({});
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
 const SinglePage = async ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
 
