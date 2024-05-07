@@ -8,7 +8,7 @@ const people = [
     name: "Zenikhri Abdelbadia",
     designation: "Student Grp-06",
     image:
-      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+      "https://scontent.falg3-2.fna.fbcdn.net/v/t39.30808-6/327156811_752952062842689_4926525386756759761_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFfXmk0cad7X4Dq0w5ubEGfi_S77iUTHDWL9LvuJRMcNSertg2gJk9cX_AoivXbD07FbCF547DSc1fTU915P06G&_nc_ohc=ZcfMWqJcCXMQ7kNvgEpzbPG&_nc_zt=23&_nc_ht=scontent.falg3-2.fna&oh=00_AfCTn6gBMi4woC__s5Rk12bZLbE0SwNKtuGODMgo37H82A&oe=66406FB4",
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const people = [
     name: "Rouisat abdelbasset",
     designation: "Student Grp-06",
     image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "https://scontent.falg3-2.fna.fbcdn.net/v/t39.30808-6/422605873_1589740518431943_3418050170892351668_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeH2Po9RZk9xy6jrjp6H6rpS1GmMaxxBqKrUaYxrHEGoqqmowfap1fPbG46_iduExoIORwF3LOSmXZWbhvUxYIYk&_nc_ohc=gETpfYvCNxoQ7kNvgFcXVAB&_nc_zt=23&_nc_ht=scontent.falg3-2.fna&oh=00_AfBVIlwKCcFvoHiG1QPy1riiw3p2Z5hsLjOBSBzMAVGE0w&oe=664063F5",
   },
 ];
 

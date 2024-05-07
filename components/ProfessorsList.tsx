@@ -11,7 +11,7 @@ const ProfessorsList = async () => {
   });
 
   return (
-    <div className="absolute top-[68px] w-[250px] right-0 bg-white/5 backdrop-blur-md p-5 rounded-xl h-fit overflow-y-auto">
+    <div className="absolute top-[68px] w-[250px] md:block hidden right-0 bg-white/10 backdrop-blur-md p-5 rounded-xl h-fit overflow-y-auto">
       <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-indigo-500 to-rose-500 -z-10 transform scale-[0.40] bg-red-500 rounded-full blur-[250px]" />
       <h2 className="text-2xl mb-5 font-semibold text-slate-200">Professors</h2>
       <nav className=" flex flex-col gap-5">

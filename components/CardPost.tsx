@@ -4,7 +4,7 @@ import { cn, formatDate } from "@/lib/utils";
 import { Post, User } from "@prisma/client";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { Trash } from "lucide-react";
+import { ArrowBigLeftDash, ArrowBigRightDash, Trash } from "lucide-react";
 import { auth } from "@/auth";
 import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
@@ -16,9 +16,9 @@ function MeteorsDemo(
 ) {
   return (
     <div className="">
-      <div className=" w-full relative">
+      <div className="w-full relative">
         <div className="absolute -z-10 top-0 left-0 h-full w-2/3 bg-gradient-to-r from-rose-500 to-indigo-500 transform scale-[0.35] bg-red-500 rounded-full blur-[180px]" />
-        <div className="relative shadow-xl bg-white/5 backdrop-blur-md p-6 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
+        <div className="relative shadow-xl bg-white/10 backdrop-blur-md p-6 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
           {props.img && (
             <div className="w-full h-[300px] relative aspect-square overflow-hidden rounded-xl">
               <Image
@@ -62,12 +62,12 @@ function MeteorsDemo(
               <p>{props.user.name}</p>
             </div>
 
-            <Link
-              href={`/posts/${props.slug}`}
-              className="border px-4 py-1 rounded-lg  border-gray-500 text-gray-300"
-            >
-              Explore
-            </Link>
+            <Button variant={"main"}>
+              <Link href={`/posts/${props.slug}`} className="">
+                Explore
+              </Link>
+              <ArrowBigRightDash className="ml-1" />
+            </Button>
             <p className=" absolute bottom-0 right-0 font-semibold tracking-widest pr-16 p-5">
               {formatDate(props.createdAt)}
             </p>

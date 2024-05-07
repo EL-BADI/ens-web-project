@@ -1,7 +1,18 @@
 import CardPost from "@/components/CardPost";
 import Center from "@/components/Center";
-import RecentPosts from "@/components/RecentPosts";
 import { db } from "@/lib/db";
+
+export async function generateStaticParams() {
+  const profs = await db.user.findMany({
+    where: {
+      isProf: true,
+    },
+  });
+
+  return profs.map((prof) => ({
+    slug: prof.id,
+  }));
+}
 
 const page = async ({ params }: { params: { id: string } }) => {
   const { id } = params;

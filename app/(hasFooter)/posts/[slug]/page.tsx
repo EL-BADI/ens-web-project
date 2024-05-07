@@ -15,6 +15,12 @@ export async function generateStaticParams() {
 const SinglePage = async ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
 
+  // await new Promise((res, _) =>
+  //   setTimeout(() => {
+  //     res();
+  //   }, 10000)
+  // );
+
   const post = await db.post.findUnique({
     where: { slug },
     include: { user: true },
