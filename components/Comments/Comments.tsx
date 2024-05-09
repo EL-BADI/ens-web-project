@@ -3,7 +3,6 @@
 import Link from "next/link";
 import styles from "./comments.module.css";
 import Image from "next/image";
-// import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
@@ -11,6 +10,7 @@ import axios from "axios";
 import { Comment, User } from "@prisma/client";
 import { cn, formatDate } from "@/lib/utils";
 import { Button } from "../ui/button";
+import { Loader2 } from "lucide-react";
 
 const fetcher = async (url: string) => {
   const res = await fetch(url);
@@ -27,6 +27,7 @@ const fetcher = async (url: string) => {
 
 const Comments = ({ postSlug }: { postSlug: string }) => {
   const { status } = useSession();
+  const [pending, setPending] = useState(false);
   const { data, isPending, refetch } = useQuery({
     queryKey: ["comments"],
     queryFn: () => fetcher(`/api/comments?postSlug=${postSlug}`),
@@ -35,11 +36,14 @@ const Comments = ({ postSlug }: { postSlug: string }) => {
   const [desc, setDesc] = useState("");
 
   const handleSubmit = async () => {
+    setPending(true);
+    setDesc("");
     await axios.post("/api/comments", {
       desc,
       postSlug,
     });
-    refetch();
+    await refetch();
+    setPending(false);
   };
 
   return (
@@ -50,11 +54,16 @@ const Comments = ({ postSlug }: { postSlug: string }) => {
           <input
             type="text"
             placeholder="write a comment..."
+            value={desc}
             className={" p-3 bg-white/10 rounded-lg w-full"}
             onChange={(e) => setDesc(e.target.value)}
           />
-          <Button variant={"main"} onClick={handleSubmit}>
-            Send
+          <Button
+            variant={"main"}
+            onClick={handleSubmit}
+            className="flex items-center gap-1"
+          >
+            Send {pending && <Loader2 className=" animate-spin w-4 h-4" />}
           </Button>
         </div>
       ) : (

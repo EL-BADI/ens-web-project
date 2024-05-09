@@ -15,7 +15,7 @@ const people = [
     name: "Tahri Hichem Farouk",
     designation: "Student Grp-06",
     image:
-      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      "https://scontent.falg3-2.fna.fbcdn.net/v/t39.30808-6/438162111_122145617732158198_4085059483542213973_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFZFW7Nq98HmJxHJ_-6qKBESHrYAMd1hrpIetgAx3WGunp0SL7oVQvJld3F0kMsPdwTJCdYBx8y5p8uLwhpDVWP&_nc_ohc=fc9J2urzIW0Q7kNvgEqWMa0&_nc_zt=23&_nc_ht=scontent.falg3-2.fna&oh=00_AfCSJbOx0qGrggHQ5iIU3wj-8-DV3JJx7Ua6gJQtw7tDoQ&oe=6642C129",
   },
   {
     id: 3,

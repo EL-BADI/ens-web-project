@@ -12,7 +12,7 @@ export default async function Dashboard() {
       <div className="flex items-center justify-center py-12">
         <div className="mx-auto grid w-[350px] gap-6">
           <div className="grid gap-2 text-center">
-            <h1 className="text-3xl font-bold">Login</h1>
+            <h1 className="text-3xl font-bold">Sign in</h1>
             <p className="text-balance text-muted-foreground">
               connect to have the ability to comment on blog posts or write your
               own blog
@@ -34,7 +34,7 @@ export default async function Dashboard() {
                 height={40}
                 alt="google icon"
               />
-              Login with Google
+              Sign in with Google
             </Button>
           </form>
         </div>

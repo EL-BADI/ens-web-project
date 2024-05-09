@@ -22,7 +22,7 @@ const Page = async () => {
         <Hero />
       </section>
       <Center>
-        <div className="grid gap-7 relative grid-cols-[1fr_250px]">
+        <div className="grid gap-7 relative md:grid-cols-[1fr_250px] grid-cols-1">
           <RecentPosts posts={posts} />
           <ProfessorsList />
         </div>

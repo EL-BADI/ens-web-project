@@ -7,6 +7,15 @@ import { redirect } from "next/navigation";
 const MyPostsPage = async () => {
   const session = await auth();
   if (!session) redirect("/login");
+
+  const isProf = await db.user.findUnique({
+    where: {
+      id: session.user?.id,
+      email: session.user?.email as string,
+    },
+  });
+  if (!isProf) redirect("/");
+
   const myPosts = await db.post.findMany({
     where: { userEmail: session.user?.email as string },
     include: { user: true },

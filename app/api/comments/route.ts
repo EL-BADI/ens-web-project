@@ -24,6 +24,9 @@ export const GET = async (req: NextRequest) => {
       include: {
         user: true,
       },
+      orderBy: {
+        createdAt: "desc",
+      },
     });
 
     return new NextResponse(JSON.stringify(comments), { status: 200 });

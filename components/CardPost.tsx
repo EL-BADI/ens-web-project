@@ -1,10 +1,9 @@
 import Image from "next/image";
-import { Meteors } from "./ui/Meteors";
 import { cn, formatDate } from "@/lib/utils";
 import { Post, User } from "@prisma/client";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { ArrowBigLeftDash, ArrowBigRightDash, Trash } from "lucide-react";
+import { ArrowBigRightDash, Trash } from "lucide-react";
 import { auth } from "@/auth";
 import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
@@ -17,7 +16,7 @@ function MeteorsDemo(
   return (
     <div className="">
       <div className="w-full relative">
-        <div className="absolute -z-10 top-0 left-0 h-full w-2/3 bg-gradient-to-r from-rose-500 to-indigo-500 transform scale-[0.35] bg-red-500 rounded-full blur-[180px]" />
+        <div className="absolute -z-10 top-0 left-0 h-full w-2/3 bg-gradient-to-r from-indigo-500 to-purple-500 transform scale-[0.35] bg-red-500 rounded-full blur-[180px]" />
         <div className="relative shadow-xl bg-white/10 backdrop-blur-md p-6 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
           {props.img && (
             <div className="w-full h-[300px] relative aspect-square overflow-hidden rounded-xl">
@@ -68,11 +67,10 @@ function MeteorsDemo(
               </Link>
               <ArrowBigRightDash className="ml-1" />
             </Button>
-            <p className=" absolute bottom-0 right-0 font-semibold tracking-widest pr-16 p-5">
+            <p className=" absolute bottom-0 right-0 font-semibold tracking-widest md:pr-16 md:p-5 p-4 text-sm">
               {formatDate(props.createdAt)}
             </p>
           </div>
-          {/* Meaty part - Meteor effect */}
         </div>
       </div>
     </div>
@@ -105,7 +103,8 @@ const CardPost = (
         >
           <Button
             type="submit"
-            className="gap-1 text-rose-500 font-bold m-3 bg-slate-700 "
+            variant={"main"}
+            className="gap-1 flex text-rose-600 m-3"
           >
             Delete
             <Trash className=" w-4 h-4" />

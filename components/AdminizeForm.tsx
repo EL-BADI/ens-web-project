@@ -92,8 +92,8 @@ function InputOTPForm() {
 
 const AdminizeForm = () => {
   return (
-    <div className="bg-slate-900 max-w-fit mx-auto p-8 rounded-xl mt-32">
-      <h1 className=" text-balance font-semibold text-indigo-500 text-2xl">
+    <div className="bg-white/10 max-w-fit mx-auto p-8 rounded-xl mt-32">
+      <h1 className=" text-balance font-semibold text-2xl">
         Only professors has access to write posts
       </h1>
       <InputOTPForm />

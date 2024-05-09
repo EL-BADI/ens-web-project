@@ -5,7 +5,7 @@ import "react-quill/dist/quill.bubble.css";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import ReactQuill from "react-quill";
-import { PlusCircleIcon } from "lucide-react";
+import { Loader2, PlusCircleIcon } from "lucide-react";
 import Center from "@/components/Center";
 import { CldUploadWidget } from "next-cloudinary";
 import Image from "next/image";
@@ -18,6 +18,7 @@ const Write = () => {
   const [image, setImage] = useState("");
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
+  const [pending, setPending] = useState(false);
 
   if (status === "loading") {
     return <div className={styles.loading}>Loading...</div>;
@@ -36,6 +37,7 @@ const Write = () => {
       .replace(/^-+|-+$/g, "");
 
   const handleSubmit = async () => {
+    setPending(true);
     const res = await fetch("/api/posts", {
       method: "POST",
       body: JSON.stringify({
@@ -113,10 +115,11 @@ const Write = () => {
         </div>
         <Button
           variant={"main"}
-          className=" z-20 absolute top-16 right-0"
+          className=" z-20 absolute top-16 right-0 flex items-center gap-1"
           onClick={handleSubmit}
         >
           Publish
+          {pending && <Loader2 className="w-5 h-5 animate-spin" />}
         </Button>
       </div>
     </Center>
