@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export const LampContainer = ({
-  children,
+children,
   className,
 }: {
   children: React.ReactNode;
