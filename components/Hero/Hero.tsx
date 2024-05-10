@@ -411,11 +411,12 @@ function Hero() {
           }}
           className="div"
         >
-          <h2 className="text-center text-xl md:text-4xl font-bold text-white">
-            Ens-Kouba AI Home
+          <h2 className="text-center heroTitle text-2xl md:text-5xl mb-3 font-bold text-white">
+            Ens-Kouba Ai Professors' Corner
           </h2>
           <p className="text-center text-base md:text-lg font-normal text-neutral-200 max-w-md mt-2 mx-auto">
-            This is a blog app where AI professors can post their blogs.
+            This platform is dedicated to AI professors, providing them a space
+            to share their blogs and exchange insights and expertise.
           </p>
         </motion.div>
         <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent to-black z-40" />
