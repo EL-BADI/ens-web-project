@@ -412,7 +412,7 @@ function Hero() {
           className="div"
         >
           <h2 className="text-center heroTitle text-2xl md:text-5xl mb-3 font-bold text-white">
-            Ens-Kouba Ai Professors' Corner
+            Ens-Kouba Ai Professors Corner
           </h2>
           <p className="text-center text-base md:text-lg font-normal text-neutral-200 max-w-md mt-2 mx-auto">
             This platform is dedicated to AI professors, providing them a space
