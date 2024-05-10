@@ -7,7 +7,7 @@ const World = dynamic(() => import("../ui/globe").then((m) => m.World), {
   ssr: false,
 });
 
-export default function Hero() {
+function Hero() {
   const globeConfig = {
     pointSize: 4,
     globeColor: "#062056",
@@ -426,6 +426,7 @@ export default function Hero() {
     </div>
   );
 }
+export default React.memo(Hero);
 
 // "use client";
 // import React from "react";
