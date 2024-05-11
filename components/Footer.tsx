@@ -11,8 +11,7 @@ const Footer = () => {
           </h2>
 
           <p className="mx-auto mt-4 max-w-sm text-gray-300">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum
-            maiores ipsum eos temporibus ea nihil.
+            students in ens-kouba 3am info 
           </p>
           <StudentsDevs />
         </div>
