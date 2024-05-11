@@ -68,7 +68,7 @@ const Comments = ({ postSlug }: { postSlug: string }) => {
         </div>
       ) : (
         <Button asChild variant={"main"}>
-          <Link href="/login">Login to write a comment</Link>
+          <Link href="/sign-in">Login to write a comment</Link>
         </Button>
       )}
       <div className={styles.comments}>
