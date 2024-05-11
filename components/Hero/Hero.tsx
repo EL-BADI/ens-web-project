@@ -311,7 +311,7 @@ function Hero() {
       arcAlt: 0.2,
       color: colors[Math.floor(Math.random() * (colors.length - 1))],
     },
-    {
+  {
       order: 11,
       startLat: -6.2088,
       startLng: 106.8456,

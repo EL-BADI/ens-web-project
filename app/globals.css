@@ -77,7 +77,7 @@
     @apply scroll-smooth bg-background text-foreground bg-black;
   }
   .heroTitle {
-    background: -webkit-linear-gradient(left, #904bfe, #c3c2c2);
+    background: -webkit-linear-gradient(left, #a86aff, #c3c2c2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
