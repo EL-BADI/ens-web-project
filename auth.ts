@@ -3,6 +3,7 @@ import Google from "next-auth/providers/google";
 import { db } from "./lib/db";
 
 export const { signIn, signOut, auth, handlers } = NextAuth({
+  trustHost: true,
   providers: [Google],
   callbacks: {
     async signIn({ account, profile, user, credentials }) {

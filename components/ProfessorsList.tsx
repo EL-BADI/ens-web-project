@@ -2,6 +2,7 @@ import { db } from "@/lib/db";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import Reveal from "./ui/Reveal";
 
 const ProfessorsList = async () => {
   const professors = await db.user.findMany({
@@ -19,27 +20,29 @@ const ProfessorsList = async () => {
           professors.length > 0 &&
           professors.map((prof) => {
             return (
-              <div key={prof.id} className=" flex gap-3 items-center">
-                <div className="w-14 h-14 rounded-full overflow-hidden">
-                  <Image
-                    className=" object-cover"
-                    src={prof.image as string}
-                    width={56}
-                    height={56}
-                    alt="professor image"
-                  />
+              <Reveal key={prof.id}>
+                <div className=" flex gap-3 items-center">
+                  <div className="w-14 h-14 rounded-full overflow-hidden">
+                    <Image
+                      className=" object-cover"
+                      src={prof.image as string}
+                      width={56}
+                      height={56}
+                      alt="professor image"
+                    />
+                  </div>
+                  <div className=" flex flex-col">
+                    <p>{prof.name}</p>
+                    <Button
+                      asChild
+                      variant={"link"}
+                      className=" text-slate-300 pl-0 justify-start"
+                    >
+                      <Link href={`/professors/${prof.id}`}>See Blogs</Link>
+                    </Button>
+                  </div>
                 </div>
-                <div className=" flex flex-col">
-                  <p>{prof.name}</p>
-                  <Button
-                    asChild
-                    variant={"link"}
-                    className=" text-slate-300 pl-0 justify-start"
-                  >
-                    <Link href={`/professors/${prof.id}`}>See Blogs</Link>
-                  </Button>
-                </div>
-              </div>
+              </Reveal>
             );
           })}
       </nav>
