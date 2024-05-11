@@ -311,7 +311,7 @@ function Hero() {
       arcAlt: 0.2,
       color: colors[Math.floor(Math.random() * (colors.length - 1))],
     },
-  {
+    {
       order: 11,
       startLat: -6.2088,
       startLng: 106.8456,
@@ -411,7 +411,7 @@ function Hero() {
           }}
           className="div"
         >
-          <h2 className="text-center heroTitle text-2xl md:text-5xl mb-3 font-bold text-white">
+          <h2 className="text-center heroTitle text-2xl md:text-5xl mb-3 font-extrabold text-white">
             Ens-Kouba Ai Professors Corner
           </h2>
           <p className="text-center text-base md:text-lg font-normal text-neutral-200 max-w-md mt-2 mx-auto">
