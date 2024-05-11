@@ -82,7 +82,6 @@ const Write = () => {
             }}
             options={{
               clientAllowedFormats: ["webp", "png", "jpg", "jpeg"],
-              maxImageFileSize: 500000,
               maxFiles: 1,
             }}
             uploadPreset="web-project"

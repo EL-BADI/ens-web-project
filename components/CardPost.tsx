@@ -20,16 +20,14 @@ function MeteorsDemo(
         <div className="absolute -z-10 top-0 left-0 h-full w-2/3 bg-gradient-to-r from-indigo-500 to-purple-500 transform scale-[0.35] bg-red-500 rounded-full blur-[180px]" />
         <div className="relative shadow-xl bg-white/10 backdrop-blur-md p-6 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
           {props.img && (
-            <Reveal>
-              <div className="w-full h-[300px] relative aspect-square overflow-hidden rounded-xl">
-                <Image
-                  src={props.img}
-                  alt="post image"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </Reveal>
+            <div className="w-full h-[300px] relative aspect-square overflow-hidden rounded-xl">
+              <Image
+                src={props.img}
+                alt="post image"
+                fill
+                className="object-cover"
+              />
+            </div>
           )}
           <div className=" md:px-10 px-2 mt-4">
             <div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
@@ -57,7 +55,7 @@ function MeteorsDemo(
               <Image
                 width={40}
                 height={40}
-                className=" rounded-full"
+                className="rounded-full"
                 src={props.user.image as string}
                 alt="author image"
               />
@@ -66,12 +64,14 @@ function MeteorsDemo(
               </Reveal>
             </div>
 
-            <Button variant={"main"}>
-              <Link href={`/posts/${props.slug}`} className="">
-                Explore
-              </Link>
-              <ArrowBigRightDash className="ml-1" />
-            </Button>
+            <Reveal>
+              <Button variant={"main"}>
+                <Link href={`/posts/${props.slug}`} className="">
+                  Explore
+                </Link>
+                <ArrowBigRightDash className="ml-1" />
+              </Button>
+            </Reveal>
             <div className=" absolute bottom-0 right-0 font-semibold tracking-widest md:pr-16 md:p-5 p-4 text-sm">
               <Reveal>{formatDate(props.createdAt)}</Reveal>
             </div>
