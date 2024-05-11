@@ -25,7 +25,7 @@ const Reveal = ({
   return (
     <div
       ref={ref}
-      className={cn("relative rounded-lg w-full overflow-hidden", className)}
+      className={cn("relative rounded-lg w-fit overflow-hidden", className)}
     >
       {children}
       <motion.div

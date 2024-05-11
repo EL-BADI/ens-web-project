@@ -19,7 +19,7 @@ const ProfessorsList = async () => {
           professors.length > 0 &&
           professors.map((prof) => {
             return (
-              <div className=" flex gap-3 items-center">
+              <div key={prof.id} className=" flex gap-3 items-center">
                 <div className="w-14 h-14 rounded-full overflow-hidden">
                   <Image
                     className=" object-cover"
