@@ -13,7 +13,7 @@ const KeyBoardKey = ({
   return (
     <kbd
       className={cn(
-        "pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border  bg-zinc-300 px-1.5 font-mono text-[10px] font-medium text-muted-foreground ml-auto",
+        "pointer-events-none flex gap-1 h-5 select-none items-center gap-1 rounded border  bg-zinc-300 px-1.5 font-mono text-[10px] font-medium text-muted-foreground ml-auto",
         className
       )}
     >

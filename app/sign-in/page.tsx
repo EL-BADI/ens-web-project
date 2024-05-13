@@ -8,8 +8,8 @@ export default async function Dashboard() {
 
   if (session) redirect("/");
   return (
-    <div className="w-full lg:grid lg:grid-cols-2 h-screen">
-      <div className="flex items-center justify-center py-12">
+    <div className="w-full md:grid md:grid-cols-2 h-screen">
+      <div className="flex items-center justify-center h-full md:py-12 py-20">
         <div className="mx-auto grid w-[350px] gap-6">
           <div className="grid gap-2 text-center">
             <h1 className="text-3xl font-bold">Sign in</h1>
@@ -39,7 +39,7 @@ export default async function Dashboard() {
           </form>
         </div>
       </div>
-      <div className="hidden bg-muted lg:block relative">
+      <div className="hidden bg-muted md:block relative">
         <div className=" absolute w-full h-full top-0 left-0 bg-black/40 backdrop-blur-md hover:backdrop-blur-sm transition-all z-20"></div>
         <Image
           src={

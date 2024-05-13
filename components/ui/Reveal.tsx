@@ -3,10 +3,17 @@
 
 "use client";
 
+import { cn } from "@/lib/utils";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { ReactNode, useEffect, useRef } from "react";
 
-const Reveal = ({ children }: { children: ReactNode }) => {
+const Reveal = ({
+  children,
+  className,
+}: {
+  className?: string;
+  children: ReactNode;
+}) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -19,7 +26,10 @@ const Reveal = ({ children }: { children: ReactNode }) => {
   }, [isInView]);
 
   return (
-    <div ref={ref} className="relative w-full overflow-hidden">
+    <div
+      ref={ref}
+      className={cn("relative rounded-lg w-fit overflow-hidden", className)}
+    >
       {children}
       <motion.div
         variants={{ hidden: { left: 0 }, visible: { left: "100%" } }}

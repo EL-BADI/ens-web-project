@@ -41,14 +41,14 @@ const Search = ({ posts }: { posts: Post[] }) => {
         onClick={() => {
           setOpen((prev) => !prev);
         }}
-        className="group p-2  rounded-md flex items-center gap-x-2 w-full bg-zinc-300/10 dark:hover:bg-zinc-700/50 transition-all"
+        className="group p-2 rounded-md flex items-center gap-x-2 w-full bg-zinc-300/10 dark:hover:bg-zinc-700/50 transition-all"
       >
         <SearchIcon className="w-4 h-4 text-zinc-400 dark:text-zinc-400" />
         <p className="font-semibold text-sm md:block hidden text-zinc-400 dark:text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-all">
           Search
         </p>
         <KeyBoardKey
-          className="md:block hidden"
+          className="md:flex hidden"
           symbol="K"
           Icon={<LucideCommand className="w-2.5 h-2.5" />}
         />
