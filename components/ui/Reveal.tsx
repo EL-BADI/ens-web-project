@@ -1,3 +1,6 @@
+
+// react.js next.js node.js mongodb
+
 "use client";
 
 import { motion, useAnimation, useInView } from "framer-motion";

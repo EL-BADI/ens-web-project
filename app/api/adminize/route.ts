@@ -1,11 +1,10 @@
 import { auth } from "@/auth";
 import { db } from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
-const secretPassword = "123456";
-// CREATE A POST
+
 export const POST = async (req: NextRequest) => {
   const session = await auth();
-
+  const secretPassword = process.env.secretPassword;
   if (!session) {
     return new NextResponse(JSON.stringify({ message: "Not Authenticated!" }), {
       status: 401,
