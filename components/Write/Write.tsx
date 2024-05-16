@@ -11,6 +11,8 @@ import { CldUploadWidget } from "next-cloudinary";
 import Image from "next/image";
 import ActionToolTip from "@/components/ActionToolTip";
 import { Button } from "../ui/button";
+import { Toaster } from "../ui/sonner";
+import { toast } from "sonner";
 
 const Write = () => {
   const { status } = useSession();
@@ -49,6 +51,7 @@ const Write = () => {
     });
     router.refresh();
     if (res.status === 200) {
+      toast("Your blog published Successfully!");
       const data = await res.json();
       router.push(`/posts/${data.slug}`);
     }
@@ -114,6 +117,7 @@ const Write = () => {
         </div>
         <Button
           variant={"main"}
+          disabled={pending}
           className=" z-20 absolute top-16 right-0 flex items-center gap-1"
           onClick={handleSubmit}
         >

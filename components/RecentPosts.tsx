@@ -13,7 +13,7 @@ const RecentPosts = ({
     <div className="mb-20">
       <h2
         id="recent"
-        className="text-4xl font-bold text-slate-200 mb-7 tracking-wider"
+        className="text-4xl font-bold text-gray-200 mb-7 tracking-wider"
       >
         Recent Posts
       </h2>

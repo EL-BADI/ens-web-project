@@ -11,6 +11,7 @@ import { Comment, User } from "@prisma/client";
 import { cn, formatDate } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { Loader2 } from "lucide-react";
+import { toast } from "sonner";
 
 const fetcher = async (url: string) => {
   const res = await fetch(url);
@@ -42,6 +43,7 @@ const Comments = ({ postSlug }: { postSlug: string }) => {
       desc,
       postSlug,
     });
+    toast("Your comment published successfully!");
     await refetch();
     setPending(false);
   };
@@ -60,6 +62,7 @@ const Comments = ({ postSlug }: { postSlug: string }) => {
           />
           <Button
             variant={"main"}
+            disabled={pending}
             onClick={handleSubmit}
             className="flex items-center gap-1"
           >
