@@ -10,6 +10,7 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import { BookMarked, LogOut } from "lucide-react";
 import { signOut } from "next-auth/react";
+import { useState } from "react";
 
 interface AccountDropMenuProps {
   imageUrl: string;
@@ -20,9 +21,9 @@ const AccountDropMenu = ({
   imageUrl,
   isAdmin = false,
 }: AccountDropMenuProps) => {
-  
+  const [open, setOpen] = useState(false);
   return (
-    <DropdownMenu>
+    <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger asChild>
         <Button
           className="relative group flex mx-3 h-[40px] rounded-full w-[40px] transition-all overflow-hidden"
@@ -35,7 +36,13 @@ const AccountDropMenu = ({
       <DropdownMenuContent align="center" side="bottom">
         {
           <DropdownMenuItem>
-            <Button asChild className="flex items-center w-full text-slate-100">
+            <Button
+              onClick={() => {
+                setOpen(false);
+              }}
+              asChild
+              className="flex items-center w-full text-slate-100"
+            >
               <Link
                 href={"/my-posts"}
                 className=" flex items-center justify-between gap-2"
@@ -47,7 +54,10 @@ const AccountDropMenu = ({
         }
         <DropdownMenuItem>
           <Button
-            onClick={() => signOut()}
+            onClick={() => {
+              signOut();
+              setOpen(false);
+            }}
             className="flex items-center justify-between w-full text-rose-500"
           >
             Log out <LogOut className=" w-4 h-4 ml-2" />
