@@ -19,11 +19,13 @@ const Hero = () => {
           share their blogs and exchange insights and expertise.
         </p>
       </div>
-      <LottieNoSSR
-        animationData={aiComputer}
-        className="md:h-[450px] h-[250px]"
-        loop={true}
-      />
+      <div className="md:h-[450px] h-[250px]">
+        <LottieNoSSR
+          animationData={aiComputer}
+          className="md:h-[450px] h-[250px]"
+          loop={true}
+        />
+      </div>
     </div>
   );
 };
