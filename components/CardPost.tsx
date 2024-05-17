@@ -9,7 +9,7 @@ import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 import Reveal from "./ui/Reveal";
 
-function MeteorsDemo(
+function Card(
   props: Post & {
     user: User;
   }
@@ -20,14 +20,17 @@ function MeteorsDemo(
         <div className="absolute -z-10 top-0 left-0 h-full w-2/3 bg-gradient-to-r from-indigo-500 to-purple-500 transform scale-[0.35] bg-red-500 rounded-full blur-[180px]" />
         <div className="relative shadow-xl bg-white/10 backdrop-blur-md p-6 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
           {props.img && (
-            <div className="w-full h-[300px] relative aspect-square overflow-hidden rounded-xl">
+            <Link
+              href={`/posts/${props.slug}`}
+              className="w-full h-[300px] relative aspect-square overflow-hidden rounded-xl"
+            >
               <Image
                 src={props.img}
                 alt="post image"
                 fill
                 className="object-cover"
               />
-            </div>
+            </Link>
           )}
           <div className=" md:px-10 px-2 mt-4">
             <div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
@@ -48,7 +51,9 @@ function MeteorsDemo(
             </div>
 
             <h1 className="font-bold text-2xl text-white mb-4 relative z-50">
-              <Reveal>{props.title}</Reveal>
+              <Reveal>
+                <Link href={`/posts/${props.slug}`}>{props.title}</Link>
+              </Reveal>
             </h1>
 
             <div className=" flex items-center gap-4 mb-5 mt-2">
@@ -65,11 +70,11 @@ function MeteorsDemo(
             </div>
 
             <Reveal>
-              <Button variant={"main"}>
-                <Link href={`/posts/${props.slug}`} className="">
-                  Explore
-                </Link>
-                <ArrowBigRightDash className="ml-1" />
+              <Button asChild variant={"main"}>
+                <div>
+                  <Link href={`/posts/${props.slug}`}>Explore</Link>
+                  <ArrowBigRightDash className="ml-1" />
+                </div>
               </Button>
             </Reveal>
             <div className=" absolute bottom-0 right-0 font-semibold tracking-widest md:pr-16 md:p-5 p-4 text-sm">
@@ -116,7 +121,7 @@ const CardPost = (
           </Button>
         </form>
       )}
-      <MeteorsDemo {...props} />
+      <Card {...props} />
     </div>
   );
 };
