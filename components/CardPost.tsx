@@ -70,12 +70,12 @@ function Card(
             </div>
 
             <Reveal>
-              <Button asChild variant={"main"}>
-                <div>
-                  <Link href={`/posts/${props.slug}`}>Explore</Link>
+              <Link href={`/posts/${props.slug}`}>
+                <Button variant={"main"}>
+                  Explore
                   <ArrowBigRightDash className="ml-1" />
-                </div>
-              </Button>
+                </Button>
+              </Link>
             </Reveal>
             <div className=" absolute bottom-0 right-0 font-semibold tracking-widest md:pr-16 md:p-5 p-4 text-sm">
               <Reveal>{formatDate(props.createdAt)}</Reveal>
